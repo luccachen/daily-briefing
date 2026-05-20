@@ -1,0 +1,33 @@
+{
+  "_comment": "订阅配置文件。priority: core=核心必读 / bg=背景了解 / noise=噪音。修改后下次生成自动生效。",
+  "sources": {
+    "Drop Site":             { "tag": "地缘政治", "type": "聚合",      "priority": "bg",   "unsubbed": false },
+    "Popular Information":   { "tag": "地缘政治", "type": "原创分析",  "priority": "core", "unsubbed": false },
+    "Uncharted Territories": { "tag": "地缘政治", "type": "原创分析",  "priority": "bg",   "unsubbed": false },
+    "Joyce Vance":           { "tag": "地缘政治", "type": "原创分析",  "priority": "bg",   "unsubbed": false },
+    "PitchBook":             { "tag": "VC投融资", "type": "原创数据",  "priority": "core", "unsubbed": false },
+    "The Information":       { "tag": "VC投融资", "type": "原创报道",  "priority": "core", "unsubbed": false },
+    "AI Supremacy":          { "tag": "AI",       "type": "聚合",      "priority": "noise","unsubbed": false },
+    "增长黑客":               { "tag": "AI",       "type": "有价值聚合","priority": "core", "unsubbed": false },
+    "Founder Corner":        { "tag": "创业",     "type": "有价值聚合","priority": "bg",   "unsubbed": false },
+    "Why Try AI":            { "tag": "AI",       "type": "有价值聚合","priority": "bg",   "unsubbed": false },
+    "Numlock":               { "tag": "其他",     "type": "聚合",      "priority": "noise","unsubbed": false },
+    "Apple 新闻":            { "tag": "其他",     "type": "聚合",      "priority": "noise","unsubbed": true  },
+    "Reddit":                { "tag": "其他",     "type": "聚合",      "priority": "noise","unsubbed": true  },
+    "Love Ireland":          { "tag": "其他",     "type": "原创",      "priority": "noise","unsubbed": false },
+    "Memoir Land":           { "tag": "其他",     "type": "原创",      "priority": "noise","unsubbed": false },
+    "OpenAI":                { "tag": "AI",       "type": "事务性",    "priority": "bg",   "unsubbed": false },
+    "Ark7":                  { "tag": "其他",     "type": "事务性",    "priority": "noise","unsubbed": false },
+    "Noahpinion":            { "tag": "地缘政治", "type": "原创分析",  "priority": "core", "unsubbed": false },
+    "James Dorsey":          { "tag": "地缘政治", "type": "原创分析",  "priority": "bg",   "unsubbed": false },
+    "Product Hunt":          { "tag": "AI",       "type": "聚合",      "priority": "noise","unsubbed": false },
+    "Smartkarma":            { "tag": "VC投融资", "type": "原创数据",  "priority": "bg",   "unsubbed": false },
+    "Medium":                { "tag": "其他",     "type": "聚合",      "priority": "noise","unsubbed": false }
+  },
+  "settings": {
+    "merge_topics": true,
+    "show_noise":   true,
+    "timezone":     "Asia/Shanghai",
+    "language":     "zh"
+  }
+}

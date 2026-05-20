@@ -1,0 +1,46 @@
+name: 每日简报自动更新
+
+on:
+  schedule:
+    # 每天 22:00 北京时间 = UTC 14:00
+    - cron: "0 14 * * *"
+  workflow_dispatch:   # 允许手动触发（测试用）
+
+permissions:
+  contents: write      # 允许推送 index.html
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出仓库
+        uses: actions/checkout@v4
+
+      - name: 设置 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 安装依赖
+        run: |
+          pip install \
+            google-auth \
+            google-auth-oauthlib \
+            google-auth-httplib2 \
+            google-api-python-client \
+            anthropic
+
+      - name: 生成每日简报
+        env:
+          GMAIL_TOKEN_JSON:  ${{ secrets.GMAIL_TOKEN_JSON }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/generate_briefing.py
+
+      - name: 提交并推送 index.html
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "📰 每日简报 $(TZ='Asia/Shanghai' date '+%Y-%m-%d')"
+          git push
