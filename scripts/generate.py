@@ -48,7 +48,7 @@ def load_config():
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 def get_gmail_service():
     token_data  = os.environ["GMAIL_TOKEN"]
-    creds_info = json.loads(token_data.strip())
+    token_data = token_data.strip().strip(chr(65279)).strip(); creds_info = json.loads(token_data)
     creds = Credentials(
         token         = creds_info.get("token"),
         refresh_token = creds_info["refresh_token"],
@@ -492,3 +492,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
